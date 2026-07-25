@@ -4,7 +4,12 @@
   --gray-1: #333333;
   --gray-2: #757575;
   --gray-3: #fefefe;
+  --gray-4: #f0ebeb;
+  --gray-5: #f0f0f0;
+  --white: #fefefe;
+  --blue-1: #2A1298;
   --purple-1: #856df3;
+  --purple-2: #E3DDFF;
   /*more color */
 }
 
@@ -12,6 +17,11 @@
   --color-gray-1: var(--gray-1);
   --color-gray-2: var(--gray-2);
   --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+  --color-white: var(--white);
+  --color-blue-1: var(--blue-1);
+  --color-purple-2: var(--purple-2);
   --color-purple-1: var(--purple-1);
 
   --font-sans: var(--font-nunito-sans);

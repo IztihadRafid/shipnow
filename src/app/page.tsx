@@ -1,16 +1,47 @@
+"use client";
 import Image from "next/image";
 import logo1 from "../../public/logo1.png";
 import logo from "../../public/logo.png";
 import image1 from "../../public/image1.jpg";
 import image2 from "../../public/image2.jpg";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 export default function Home() {
+  // hooks
+  const [showPassword, setShowPassword] = useState(false);
+  const [errors, setErrors] = useState({});
+  const router = useRouter();
+
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    // password validation
+    if (!password || password.length < 8) {
+      setErrors({password: "Password must be at least 8 characters",});
+      return;
+    }
+    setErrors({});
+    localStorage.setItem("user", "loggedIn");
+    router.push("/dashboard");  //redirect to dashboard after login
+  };
+
   return (
     <div className="flex xl:w-[1440px] bg-gray-3 mx-auto xl:flex-row flex-col   ">
       {/* left content */}
       <section className="bg-purple-1 xl:w-1/2 flex flex-col items-center justify-center gap-4 h-[1024px]">
         <div className="flex flex-row w-66 h-18 items-center justify-center gap-4">
-          <Image src={logo1} alt="ShipNow logo" className="w-[46px] h-[46px]" width={200} height={300} />
+          <Image
+            src={logo1}
+            alt="ShipNow logo"
+            className="w-[46px] h-[46px]"
+            width={200}
+            height={300}
+          />
           <h1 className="text-[34.43px] text-gray-3 font-black italic">
             SHIPNOW
           </h1>
@@ -48,24 +79,45 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <form className="mt-8">
+
+        {/* login form */}
+        <form className="mt-8" onSubmit={handleLogin}>
           <div className="mb-1.5">
+            {/* Email */}
             <label>Email Address</label>
             <input
+              required
               type="email"
               name="email"
               placeholder="Enter a valid email address"
               className="bg-gray-100 text-gray-1 w-full px-3 py-2 rounded-lg"
             />
           </div>
+          {/* password */}
           <div className="mb-1.5">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Create a strong password"
-             className="bg-gray-100 text-gray-1 w-full px-3 py-2 rounded-lg"
-            />
+            <label htmlFor="password">Password</label>
+            <div className="relative">
+              <input
+                required
+                type={showPassword ? "text" : "password"}
+                name="password"
+                id="password"
+                placeholder="Create a strong password"
+                className="bg-gray-100 text-gray-1 w-full px-3 py-2 pr-10 rounded-lg"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-2"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
+            {/* error message */}
+            {errors?.password && (
+              <p className="text-red-500 text-sm mt-1">{errors?.password}</p>
+            )}
           </div>
           <div className="flex flex-row items-center justify-between mb-8">
             <div>
@@ -73,16 +125,25 @@ export default function Home() {
               <input
                 type="checkbox"
                 name="remember"
-                value="Remember me"className="accent-purple-1 mr-1"
+                value="Remember me"
+                className="accent-purple-1 mr-1"
               ></input>
               <label>Remember me</label>
               <br></br>
             </div>
             <div>
-              <Link href="/forgotpassword" className="text-purple-1 text-sm p-0.5">Forgot Password?</Link>
+              <Link
+                href="/forgotpassword"
+                className="text-purple-1 text-sm p-0.5"
+              >
+                Forgot Password?
+              </Link>
             </div>
           </div>
-          <button className="bg-gray-1 text-gray-3 w-full px-4.5 py-3 rounded-lg mb-4" type="submit">
+          <button
+            className="bg-gray-1 text-gray-3 w-full px-4.5 py-3 rounded-lg mb-4"
+            type="submit"
+          >
             Login
           </button>
 
@@ -91,7 +152,8 @@ export default function Home() {
               Don`t have an account?{" "}
               <Link href="/signup" className="text-purple-1 p-0.5">
                 Sign Up
-              </Link></p>
+              </Link>
+            </p>
           </div>
         </form>
       </section>
