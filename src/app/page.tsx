@@ -1,65 +1,100 @@
 import Image from "next/image";
-
+import logo1 from "../../public/logo1.png";
+import logo from "../../public/logo.png";
+import image1 from "../../public/image1.jpg";
+import image2 from "../../public/image2.jpg";
+import Link from "next/link";
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex xl:w-[1440px] bg-gray-3 mx-auto xl:flex-row flex-col   ">
+      {/* left content */}
+      <section className="bg-purple-1 xl:w-1/2 flex flex-col items-center justify-center gap-4 h-[1024px]">
+        <div className="flex flex-row w-66 h-18 items-center justify-center gap-4">
+          <Image src={logo1} alt="ShipNow logo" className="w-[46px] h-[46px]" width={200} height={300} />
+          <h1 className="text-[34.43px] text-gray-3 font-black italic">
+            SHIPNOW
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        </div>
+
+        <div className="relative flex flex-col items-center justify-center gap-4 md:w-[553.5px] w-[326px] md:h-124.75 h-[328px]">
+          <Image
+            src={image1}
+            alt="ShipNow1"
+            className="md:w-[178.46px] w-[105px] md:h-57 h-[135px] rounded-lg object-fit absolute top-0 right-0 z-20"
+          />
+          <Image
+            src={image2}
+            alt="ShipNow2"
+            className=" top-0 right-0 md:w-102.5 w-[243px] h-[229px] md:h-96.5 z-10 rounded-lg object-cover"
+          />
+        </div>
+
+        <div className="md:w-121.75 md:h-24 w-[326px] h-[140px] text-center text-gray-3 flex flex-col items-center justify-center gap-4">
+          <h2 className="text-[40px] font-extrabold ">Welcome to ShipNow</h2>
+          <p className="font-normal text-[16px]">
+            Manage your shipments, fleet, and warehouse in one smart dashboard.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* right content */}
+      <section className="bg-gray-3 xl:w-1/2  flex flex-col items-center justify-center h-[1024px] gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 w-100">
+          <Image src={logo} alt="ShipNow logo" className="w-10 h-10" />
+          <div className="w-100 h-13 gap-2 flex flex-col items-center justify-center">
+            <h3 className="text-gray-1 font-bold text-2xl">Welcome Back</h3>
+            <p className="font-normal text-[14px] text-gray-2">
+              Log in to continue managing your logistics with ShipNow
+            </p>
+          </div>
         </div>
-      </main>
+        <form className="mt-8">
+          <div className="mb-1.5">
+            <label>Email Address</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter a valid email address"
+              className="bg-gray-100 text-gray-1 w-full px-3 py-2 rounded-lg"
+            />
+          </div>
+          <div className="mb-1.5">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Create a strong password"
+             className="bg-gray-100 text-gray-1 w-full px-3 py-2 rounded-lg"
+            />
+          </div>
+          <div className="flex flex-row items-center justify-between mb-8">
+            <div>
+              {" "}
+              <input
+                type="checkbox"
+                name="remember"
+                value="Remember me"className="accent-purple-1 mr-1"
+              ></input>
+              <label>Remember me</label>
+              <br></br>
+            </div>
+            <div>
+              <Link href="/forgotpassword" className="text-purple-1 text-sm p-0.5">Forgot Password?</Link>
+            </div>
+          </div>
+          <button className="bg-gray-1 text-gray-3 w-full px-4.5 py-3 rounded-lg mb-4" type="submit">
+            Login
+          </button>
+
+          <div className="text-center">
+            <p className="text-gray-2 text-[12px]">
+              Don`t have an account?{" "}
+              <Link href="/signup" className="text-purple-1 p-0.5">
+                Sign Up
+              </Link></p>
+          </div>
+        </form>
+      </section>
     </div>
   );
 }
