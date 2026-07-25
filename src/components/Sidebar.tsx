@@ -12,13 +12,13 @@ import { navLinks, NavLinksProps } from "@/data/navlinks";
 export default function Sidebar() {
   const pathname = usePathname();
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+ const activeLink = navLinks.find((link) => link.href === pathname);
   const NavLinks = ({
     sideNavlinks,
   }: {
     sideNavlinks: NavLinksProps | boolean;
   }) => (
-    <nav className="flex flex-col gap-2 w-[191px] mt-5">
+    <nav className="flex flex-col gap-2 mt-5">
       {navLinks.map(({ name, href, icon: Icon }) => {
         const isActive = pathname === href;
         return (
@@ -45,14 +45,14 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop  sidebar */}
-      <aside className="hidden  xl:flex fixed top-0 left-0 h-screen w-[223px] items-center bg-white  flex-col px-4 py-5 z-40">
+      <aside className="hidden xl:flex fixed top-0 left-0 h-screen w-[223px] items-center bg-white  flex-col px-4 py-5 z-40">
         {/* logo section */}
         <div className="h-14  flex w-[191px] items-center gap-2 px-2">
           <Image src={logo1} alt="ShipNow logo" className="w-7 h-7" />
           <span className="font-black italic text-xl text-gray-1">SHIPNOW</span>
         </div>
         {/* profile section */}
-        <div className="flex mt-5 items-center justify-between w-[191px] mx-auto bg-gray-5 rounded-lg">
+        <div className="md:hidden xl:flex mt-5 items-center justify-between w-[191px] mx-auto bg-gray-5 rounded-lg">
           <div className="flex items-center justify-start gap-2 p-2 rounded-lg ">
             <Image
               src={adminImg}
@@ -72,6 +72,25 @@ export default function Sidebar() {
         </div>
         <NavLinks sideNavlinks />
       </aside>
+
+      {/* Tablet icon rail */}
+      <aside className="hidden md:flex xl:hidden fixed top-0 left-0 h-screen w-16 bg-gray-3 border-r border-gray-1/10 flex-col items-center z-40">
+        <div className="h-14 flex items-center">
+          <Image src={logo1} alt="ShipNow logo" width={32} height={32} />
+        </div>
+        {/* profile section */}
+        <div className="flex mt-5 items-center justify-between  bg-gray-5 rounded-lg"> 
+            <Image
+              src={adminImg}
+              alt="Admin profile"
+              className="w-8 h-8 rounded-full "
+              width={32}
+              height={32}
+            />
+        </div>
+        <NavLinks sideNavlinks={false} />
+      </aside>
+
       {/* Mobile sticky top bar */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gray-3 border-b border-gray-1/10 flex items-center justify-between px-4 z-40">
         <Image
@@ -81,6 +100,7 @@ export default function Sidebar() {
           width={32}
           height={32}
         />
+         <h2 className="font-semibold text-[16px] text-gray-1">{activeLink?.name}</h2>
         <button
           type="button"
           aria-label="Open menu"
@@ -112,6 +132,7 @@ export default function Sidebar() {
             width={32}
             height={32}
           />
+         
           <button
             type="button"
             aria-label="Close menu"
@@ -120,15 +141,24 @@ export default function Sidebar() {
             <X size={22} className="text-gray-1" />
           </button>
         </div>
-        <NavLinks sideNavlinks />
-      </aside>
-
-      {/* Tablet icon rail */}
-      <aside className="hidden md:flex xl:hidden fixed top-0 left-0 h-screen w-16 bg-gray-3 border-r border-gray-1/10 flex-col items-center z-40">
-        <div className="h-14 flex items-center">
-          <Image src={logo1} alt="ShipNow logo" width={32} height={32} />
+        {/* profile section */}
+        <div className="md:hidden xl:flex mt-5 items-center justify-between w-[191px] mx-auto bg-gray-5 rounded-lg">
+          <div className="flex items-center justify-start gap-2 p-2 rounded-lg ">
+            <Image
+              src={adminImg}
+              alt="Admin profile"
+              className="w-8 h-8 rounded-full "
+              width={32}
+              height={32}
+            />
+            <div className="flex flex-col items-start">
+              <h5 className="font-semibold text-[14px]">John Doe</h5>
+              <p className="text-[10px]">Admin</p>
+            </div>
+          </div>
+         
         </div>
-        <NavLinks sideNavlinks={false} />
+        <NavLinks sideNavlinks />
       </aside>
     </>
   );
