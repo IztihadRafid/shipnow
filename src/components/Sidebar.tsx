@@ -132,7 +132,7 @@ export default function Sidebar() {
             width={32}
             height={32}
           />
-         
+          <h2 className="font-semibold text-[16px] text-gray-1">{activeLink?.name}</h2>
           <button
             type="button"
             aria-label="Close menu"
