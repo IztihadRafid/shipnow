@@ -1,0 +1,30 @@
+#chart {
+  max-width: 480px;
+  margin: 35px auto;
+  padding: 0;
+}
+.actions {
+  top: -10px;
+  position: relative;
+  z-index: 10;
+  max-width: 400px;
+  margin: 0 auto;
+}
+button {
+  color: #fff;
+  background: #20b2aa;
+  padding: 5px 10px;
+  margin: 2px;
+  font-weight: bold;
+  font-size: 13px;
+  border-radius: 5px;
+}
+p {
+  margin: 10px 0;
+}
+@media only screen and (max-width: 480px) {
+  .actions {
+    margin-top: 0;
+    left: 0;
+  }
+}

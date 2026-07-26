@@ -45,7 +45,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop  sidebar */}
-      <aside className="hidden xl:flex fixed top-0 left-0 h-screen w-[223px] items-center bg-white  flex-col px-4 py-5 z-40">
+      <aside className="hidden xl:flex  h-screen w-[223px] items-center bg-white  flex-col px-4 py-5 ">
         {/* logo section */}
         <div className="h-14  flex w-[191px] items-center gap-2 px-2">
           <Image src={logo1} alt="ShipNow logo" className="w-7 h-7" />
@@ -74,7 +74,7 @@ export default function Sidebar() {
       </aside>
 
       {/* Tablet icon rail */}
-      <aside className="hidden md:flex xl:hidden fixed top-0 left-0 h-screen w-16 bg-gray-3 border-r border-gray-1/10 flex-col items-center z-40">
+      <aside className="hidden md:flex xl:hidden fixed top-0 left-0 h-screen w-16 bg-gray-3 border-r border-gray-1/10 flex-col items-center ">
         <div className="h-14 flex items-center">
           <Image src={logo1} alt="ShipNow logo" width={32} height={32} />
         </div>
