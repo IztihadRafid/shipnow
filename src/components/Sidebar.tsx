@@ -45,7 +45,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop  sidebar */}
-      <aside className="hidden xl:flex  h-screen w-[223px] items-center bg-white  flex-col px-4 py-5 ">
+      <aside className="hidden xl:flex  h-screen w-[223px] border-l border-gray-4 items-center bg-white  flex-col px-4 py-5 ">
         {/* logo section */}
         <div className="h-14  flex w-[191px] items-center gap-2 px-2">
           <Image src={logo1} alt="ShipNow logo" className="w-7 h-7" />

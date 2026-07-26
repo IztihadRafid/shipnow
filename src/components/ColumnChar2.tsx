@@ -1,12 +1,8 @@
 "use client";
-
 import dynamic from "next/dynamic";
 import { ArrowUp, ChevronDown } from "lucide-react";
-
-// ApexCharts touches `window`, so it can only load in the browser
 const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-// Mock data — swap with real values once available
 const monthlyProfitData = [
   { month: "Jan", revenue: 45000, cost: 20000 },
   { month: "Feb", revenue: 62000, cost: 25000 },
@@ -18,10 +14,7 @@ const monthlyProfitData = [
   { month: "Aug", revenue: 82000, cost: 33000 },
 ];
 
-// Which month gets the "highlighted" dark colors — everything else stays pale
 const HIGHLIGHTED_MONTH = "May";
-
-// Colors, kept in one place so they're easy to swap for real tokens later
 const COLORS = {
   revenueActive: "#856DF3",
   costActive: "#171717",
@@ -29,8 +22,6 @@ const COLORS = {
   axisText: "#757575",
   gridLine: "#F1F1F1",
 };
-
-// Builds the tooltip's inner HTML for a given month's data
 function buildTooltipHtml(monthData: { revenue: number; cost: number }) {
   const row = (color: string, label: string, value: number) => `
     <div style="display:flex;align-items:center;gap:6px;">
@@ -41,7 +32,6 @@ function buildTooltipHtml(monthData: { revenue: number; cost: number }) {
       </span>
     </div>
   `;
-
   return `
     <div style="padding:8px 12px;">
       ${row(COLORS.revenueActive, "Revenue", monthData.revenue)}
@@ -68,8 +58,7 @@ export default function ColumnChar2() {
         borderRadiusApplication: "end" as const,
       },
     },
-    // Each bar picks its own color depending on whether it's the highlighted month.
-    // seriesIndex 0 = Revenue, seriesIndex 1 = Cost.
+  
     colors: [
       ({ dataPointIndex, seriesIndex }: { dataPointIndex: number; seriesIndex: number }) => {
         const month = monthlyProfitData[dataPointIndex].month;
@@ -92,7 +81,6 @@ export default function ColumnChar2() {
       horizontalAlign: "right" as const,
       fontSize: "12px",
       labels: { colors: COLORS.axisText },
-      // Legend dots always show the "active" colors, not the per-bar function above
       markers: { fillColors: [COLORS.revenueActive, COLORS.costActive] },
     },
     xaxis: {
@@ -117,7 +105,7 @@ export default function ColumnChar2() {
 
   return (
     <div className="bg-gray-3 rounded-xl p-4">
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between  mb-2">
         <h3 className="font-semibold text-gray-1">Profit Summary</h3>
         <button className="flex items-center bg-gray-5  gap-1 text-sm text-gray-2 border border-gray-1/10 rounded-lg px-3 py-1.5">
           Last 8 Months <ChevronDown size={14} />
@@ -131,7 +119,7 @@ export default function ColumnChar2() {
         </span>
       </div>
 
-      <ReactApexChart options={options} series={series} type="bar" height={220} />
+      <ReactApexChart options={options} series={series} type="bar" height={200} />
     </div>
   );
 }
