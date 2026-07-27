@@ -6,7 +6,7 @@ interface StatusTabsProps {
 const statusOptions = ["All", "Delivered", "In Transit", "Processing", "Out for Delivery"]; 
 export default function StatusTabs({ activeStatus, onStatusChange }: StatusTabsProps) {
   return (
-    <div className="flex bg-white rounded-xl gap-0.5 p-1 flex-wrap">
+    <div className="flex items-center md:justify-start justify-center bg-white rounded-xl gap-0.5 p-1 ">
       {statusOptions.map((status) => (
         <button
           key={status}

@@ -17,7 +17,6 @@ const shippingMethods = [
   "Cross Docking",
 ];
 const CreateShipmentForm = () => {
-
   const [senderCountry, setSenderCountry] = useState(countryCodes[0]);
   const [senderDropdownOpen, setSenderDropdownOpen] = useState(false);
   const [recipientCountry, setRecipientCountry] = useState(countryCodes[0]);
@@ -64,12 +63,12 @@ const CreateShipmentForm = () => {
     validatePhone(digitsOnly, code, setError);
   };
 
- const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const formData = new FormData(e.currentTarget);
-  const data = Object.fromEntries(formData.entries());
-  console.log(JSON.stringify(data, null, 2));
-};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    console.log(JSON.stringify(data, null, 2));
+  };
   return (
     <div className="bg-gray-5 p-2  mx-auto">
       <section className="md:flex justify-between items-center rounded-lg hidden">
@@ -168,7 +167,11 @@ const CreateShipmentForm = () => {
                                 onClick={() => {
                                   setSenderCountry(c);
                                   setSenderDropdownOpen(false);
-                                  validatePhone(senderPhone, c.code, setSenderPhoneError);
+                                  validatePhone(
+                                    senderPhone,
+                                    c.code,
+                                    setSenderPhoneError,
+                                  );
                                 }}
                                 className="flex items-center gap-2 w-full px-3 py-2 text-[12px] hover:bg-gray-5"
                               >
@@ -290,7 +293,11 @@ const CreateShipmentForm = () => {
                                 onClick={() => {
                                   setRecipientCountry(c);
                                   setRecipientDropdownOpen(false);
-                                  validatePhone(recipientPhone, c.code, setRecipientPhoneError);
+                                  validatePhone(
+                                    recipientPhone,
+                                    c.code,
+                                    setRecipientPhoneError,
+                                  );
                                 }}
                                 className="flex items-center gap-2 w-full px-3 py-2 text-[12px] hover:bg-gray-5"
                               >
@@ -350,7 +357,7 @@ const CreateShipmentForm = () => {
         </div>
 
         {/* package & shipment */}
-        <div className="flex mt-5">
+        <div className="flex xl:flex-row flex-col mt-5">
           <div className="xl:w-[363px] md:w-full p-2 rounded-[10px] mx-5">
             <h4 className="text-[14px] font-bold">Package Details</h4>
             <div className="mt-4">
@@ -368,7 +375,7 @@ const CreateShipmentForm = () => {
               </div>
             </div>
 
-            <div className="flex xl:flex-row gap-2.5 md:flex-col">
+            <div className="grid xl:grid-cols-2 grid-cols-4 gap-2.5 ">
               <div className="mt-4">
                 <div className="flex flex-col">
                   <label className="text-[11px] text-gray-2 px-[1px] pb-1.5 gap-1">
@@ -396,9 +403,6 @@ const CreateShipmentForm = () => {
                   />
                 </div>
               </div>
-            </div>
-
-            <div className="flex  gap-2.5">
               <div className="mt-4">
                 <div className="flex flex-col">
                   <label className="text-[11px] text-gray-2 px-[1px] pb-1.5 gap-1">
@@ -429,7 +433,7 @@ const CreateShipmentForm = () => {
             </div>
 
             {/* dimension */}
-            <div className="mt-4">
+            <div className="mt-4  md:border-b xl:border-none border-[#E0E0E0]">
               <div className="flex flex-col">
                 <label className="text-[11px] text-gray-2 px-[1px] pb-1.5 gap-1">
                   Dimensions
@@ -490,7 +494,9 @@ const CreateShipmentForm = () => {
               </div>
             </div>
           </div>
-          <div className="border border-[#E0E0E0] md:h-[262px]  md:w-0 w-[278px] mx-auto my-auto"></div>
+          {/* border line */}
+          <div className="border border-[#E0E0E0] xl:h-[262px]  xl:w-0  mx-auto my-auto"></div>
+
           <div className=" md:w-full p-2 rounded-[10px] mx-5">
             <h4 className="text-[14px] font-bold">Shipping Details</h4>
             <div>
@@ -500,7 +506,7 @@ const CreateShipmentForm = () => {
                   <label className="text-[11px] text-gray-2 px-[1px] pb-1.5 gap-1">
                     Freight Type
                   </label>
-                  <div className="flex gap-1.5 items-center justify-start p-[1px]">
+                  <div className="grid md:grid-cols-4 grid-cols-2  gap-1.5  p-[1px]">
                     <div className="flex items-center justify-start gap-1 w-[128px]">
                       <input
                         required
@@ -552,7 +558,7 @@ const CreateShipmentForm = () => {
                   </div>
                 </div>
                 {/* data */}
-                <div className="flex gap-2.5">
+                <div className="flex md:flex-row flex-col gap-2.5">
                   <div className="flex flex-col ">
                     <label className="text-[11px] text-gray-2  px-[1px] pb-1.5 gap-1">
                       Carrier
@@ -664,16 +670,15 @@ const CreateShipmentForm = () => {
                 </div>
                 <div className="border border-[#E0E0E0] my-4 w-full mx-auto "></div>
 
-                <div className="flex gap-2.5">
+                <div className="flex xl:flex-row md:flex-row flex-col gap-2.5">
                   <div className="flex flex-col">
                     <label className="text-[11px] text-gray-2 px-[1px] pb-1.5 gap-1">
                       Addional Services
                     </label>
-                    <div className="flex gap-1.5 items-center justify-start p-[1px]">
+                    <div className="flex xl:flex-row md:flex-row flex-col  gap-1.5 xl:items-center justify-start p-[1px]">
                       <div className="flex flex-col gap-1">
                         <div className="flex items-center justify-start gap-1 w-[171px]">
                           <input
-                            
                             type="checkbox"
                             name="insurance"
                             value="insurance"
@@ -685,7 +690,6 @@ const CreateShipmentForm = () => {
                         </div>
                         <div className="flex items-center justify-start gap-1 w-[171px] p-[1px]">
                           <input
-                            
                             type="checkbox"
                             name="signatureOnDelivery"
                             value="signatureOnDelivery"
@@ -699,7 +703,6 @@ const CreateShipmentForm = () => {
                       <div className="flex flex-col">
                         <div className="flex items-center justify-start gap-1 w-[171px] p-[1px]">
                           <input
-                            
                             type="checkbox"
                             name="temperatureControl"
                             value="temperatureControl"
@@ -711,7 +714,6 @@ const CreateShipmentForm = () => {
                         </div>
                         <div className="flex items-center justify-start gap-1 w-[171px] p-[1px]">
                           <input
-                           
                             type="checkbox"
                             name="fragileItemHandling"
                             value="fragileItemHandling"
@@ -758,8 +760,12 @@ const CreateShipmentForm = () => {
         <div className="border border-[#E0E0E0]   w-full  mx-auto my-5"></div>
 
         {/* buttons sections */}
-        <div className="flex justify-end items-center gap-2.5">
-          <button className="text-[14px] bg-gray-5 hover:bg-gray-4 font-semibold px-[16px] py-[10px] rounded-lg">
+        <div className="flex justify-center md:justify-end items-center gap-2.5">
+          <button
+            type="button"
+            onClick={(e) => e.currentTarget.form?.reset()}
+            className="text-[14px] bg-gray-5 hover:bg-gray-4 font-semibold px-[16px] py-[10px] rounded-lg"
+          >
             Delete Form
           </button>
           <button

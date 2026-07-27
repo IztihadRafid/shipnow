@@ -43,7 +43,7 @@ export default function ShipmentsTableView({
 
   return (
     <div>
-      {/* summary cards — added above your table, table itself is untouched below */}
+     
       <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 my-4">
         {SummaryCards.map((card) => (
           <div key={card.label} className="bg-white rounded-xl p-4">
@@ -59,7 +59,7 @@ export default function ShipmentsTableView({
       </div>
 
       <div className="bg-white rounded-lg p-4 mt-4 overflow-x-auto">
-        <table className="w-full text-left ">
+        <table className="xl:w-[1177px] w-[1177px]  text-left ">
           <thead className="">
             <tr className="text-gray-2 text-[11px] border-b border-gray-4">
               <th className=" py-3 w-[12px] py-[14px] px-[10px]">

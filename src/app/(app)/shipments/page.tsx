@@ -104,7 +104,7 @@ const ShipmentPage = () => {
               return (
                 <div
                   key={item.id}
-                  className="bg-white rounded-lg p-4 xl:w-[279px] w-[343px] mx-auto"
+                  className="bg-white w-full rounded-lg p-4 mx-auto"
                 >
                   <div className="flex justify-between items-center">
                     <div>

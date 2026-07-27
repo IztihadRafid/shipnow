@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown, Plus } from "lucide-react";
 import ViewToggle, { ViewMode } from "@/components/ViewToggle";
+import Link from "next/link";
 
 export type SortOrder = "asc" | "desc";
 
@@ -24,22 +25,26 @@ export default function SearchSortBar({
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center justify-center mt-5 gap-2">
       <div className="flex items-center bg-white gap-1.5 rounded-lg p-2.5 ">
-        <Search size={16} className="text-gray-2 shrink-0" />
+        <Search size={18} className="text-gray-2 " />
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search by shipment"
-          className="rounded-lg w-full bg-transparent outline-none text-sm text-gray-1 placeholder:text-gray-2"
+          className="rounded-lg  bg-transparent outline-none text-sm text-gray-1 placeholder:text-gray-2"
         />
+       <Link
+            href="/shipments/create" 
+            className="md:hidden inline-flex items-center bg-black text-white rounded-lg p-2 "
+          >
+            <Plus size={18}/>
+          </Link>
       </div>
 
-      {/* table/grid view switcher goes here now, instead of the old funnel filter */}
       <ViewToggle view={view} onViewChange={onViewChange} />
-
-      <div className="relative">
+      <div className="relative hidden md:block">
         <button
           type="button"
           onClick={() => setSortMenuOpen((prev) => !prev)}

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Filter, List, LayoutGrid, ChevronDown } from "lucide-react";
+import { Filter, List, LayoutGrid, ChevronDown, SlidersHorizontal } from "lucide-react";
 interface ViewToggleProps {
   view: ViewMode;
   onViewChange: (view: ViewMode) => void;
@@ -14,13 +14,21 @@ export default function ViewToggle({ view, onViewChange }: ViewToggleProps) {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 bg-white rounded-lg px-3 py-2 text-[12px] text-gray-1"
+        className="hidden md:flex items-center gap-1.5 bg-white rounded-lg px-3 py-2 text-[12px] text-gray-1"
       >
         <Filter size={14} />
         Filter
         <ChevronDown size={14} />
       </button>
-
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="md:hidden flex items-center gap-1.5 bg-white rounded-lg px-3 py-2 text-[12px] text-gray-1"
+      >
+        <SlidersHorizontal size={22} />
+        
+        
+      </button>
       {open && (
         <div className="absolute top-full mt-1 right-0 bg-white border border-gray-1/10 rounded-lg shadow-md overflow-hidden z-10 w-[110px]">
           <button
