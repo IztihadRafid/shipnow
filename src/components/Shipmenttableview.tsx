@@ -143,9 +143,7 @@ export default function ShipmentsTableView({
                   </td>
                   <td className="flex items-center py-[14px] px-[10px]">
                     <p>
-                      {item?.companyLogo && (
-                        <CompanyLogo size={26} className="text-gray-1 mr-0.5" />
-                      )}
+                      <CompanyLogo size={26} className="text-gray-1 mr-0.5" />
                     </p>
                     <div>
                       <p className="text-[11px] text-gray-1 font-semibold">
@@ -154,7 +152,9 @@ export default function ShipmentsTableView({
                       <p className="text-[10px] text-gray-2">{item?.service}</p>
                     </div>
                   </td>
-                  <td className=" text-[11px] py-[14px] px-[10px]">{item?.carrier}</td>
+                  <td className=" text-[11px] py-[14px] px-[10px]">
+                    {item?.carrier}
+                  </td>
                   <td className="py-[14px] px-[10px]">
                     <p className="text-[11px] text-gray-1">{item?.service}</p>
                   </td>
