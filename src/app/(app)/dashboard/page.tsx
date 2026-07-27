@@ -97,7 +97,7 @@ const Dashboard = () => {
   return (
     <div className="p-5  bg-gray-5 w-full mb-5">
       {/* dashboard header and searchbar */}
-      <section className="flex justify-between items-center w-full h-[50px] bg-gray-5 rounded-lg">
+      <section className="flex justify-between items-center w-full  bg-gray-5 rounded-lg">
         <div className="bg-gray-5 w-1/2 md:block hidden xl:block h-full rounded-lg p-2.5">
           <h3 className="text-[16px]">Hello John!</h3>
           <p className="text-[24px] font-bold">Good Morning</p>
@@ -128,7 +128,7 @@ const Dashboard = () => {
             {dashboardCardData.map((card, index) => (
               <div
                 key={index}
-                className="flex justify-between items-center bg-gray-3 rounded-lg p-4 h-[115px] md:w-[272px]"
+                className="flex justify-between items-center bg-gray-3 rounded-lg p-4 "
               >
                 <div>
                   <p className="text-[12px] font-semibold text-gray-2">
@@ -167,9 +167,9 @@ const Dashboard = () => {
             ))}
           </section>
 
-          <section className="flex gap-5 xl:w-[858px] mt-4 ">
+          <section className="flex gap-5  mt-4 ">
             {/* left */}
-            <div className="w-[369px] ">
+            <div className="">
               <ColumnChar1></ColumnChar1>
             </div>
 
@@ -180,7 +180,7 @@ const Dashboard = () => {
           </section>
         </section>
         {/* pie chart */}
-        <section className="mt-5 ">
+        <section className="mt-5 w-[299px]">
           <ApexChart></ApexChart>
         </section>
       </section>

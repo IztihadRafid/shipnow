@@ -12,7 +12,11 @@ import { navLinks, NavLinksProps } from "@/data/navlinks";
 export default function Sidebar() {
   const pathname = usePathname();
   const [drawerOpen, setDrawerOpen] = useState(false);
- const activeLink = navLinks.find((link) => link.href === pathname);
+ const isNavActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
+
+  const activeLink = navLinks.find((link) => isNavActive(link.href));
+ 
   const NavLinks = ({
     sideNavlinks,
   }: {
@@ -20,7 +24,7 @@ export default function Sidebar() {
   }) => (
     <nav className="flex flex-col gap-2 mt-5">
       {navLinks.map(({ name, href, icon: Icon }) => {
-        const isActive = pathname === href;
+        const isActive = isNavActive(href);
         return (
           <Link
             key={href}
@@ -74,7 +78,7 @@ export default function Sidebar() {
       </aside>
 
       {/* Tablet icon rail */}
-      <aside className="hidden md:flex xl:hidden fixed top-0 left-0 h-screen w-16 bg-gray-3 border-r border-gray-1/10 flex-col items-center ">
+      <aside className="hidden md:flex xl:hidden fixed top-0 left-0 h-screen w-[54px] bg-gray-3 border-r border-gray-1/10 flex-col items-center">
         <div className="h-14 flex items-center">
           <Image src={logo1} alt="ShipNow logo" width={32} height={32} />
         </div>

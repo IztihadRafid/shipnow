@@ -51,7 +51,7 @@ export default function ShipmentTypeChart() {
   };
 
   return (
-    <div className="bg-gray-3 rounded-xl p-4 h-full">
+    <div className="bg-gray-3 rounded-xl p-4  h-full">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-gray-1">Shipment Type</h3>
         <button aria-label="More options" className="text-gray-2">
