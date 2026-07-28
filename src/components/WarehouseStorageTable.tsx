@@ -2,7 +2,7 @@ import { warehouseStorage } from "@/data/warehouse";
 import { ArrowUpDown, ChevronDown, Funnel } from "lucide-react";
 export default function WarehouseStorageTable() {
   return (
-    <div className="bg-white rounded-xl p-4 mt-4">
+    <div className="bg-white rounded-xl p-4 mt-4 overflow-x-auto">
       <div className="flex justify-between items-center">
         <h4 className="text-[16px] font-semibold">Warehouse Storage</h4>
         <div className="flex items-center gap-2 ">
