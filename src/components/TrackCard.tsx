@@ -13,7 +13,7 @@ const trackedShipment = {
 
 export default function TrackCard() {
   return (
-    <div className="relative border-8 border-gray-3 p-1 bg-gray-5 rounded-xl overflow-hidden w-[469px] min-h-[340px]">
+    <div className="relative border-8 border-gray-3 p-1 bg-gray-5 rounded-xl overflow-hidden  min-h-[440px]">
       <div className="absolute top-4 bg-gray-5 left-4 right-16 z-10 w-[254px]">
         <div className="flex items-center gap-2 rounded-lg bg-white px-3 py-2 shadow-sm">
           <Search size={16} className="text-gray-2 " />

@@ -51,10 +51,10 @@ export default function ShipmentTypeChart() {
   };
 
   return (
-    <div className="bg-gray-3 rounded-xl p-4  h-full">
+    <div className="bg-gray-3 rounded-xl p-4 h-full md:w-[299px]">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-gray-1">Shipment Type</h3>
-        <button aria-label="More options" className="text-gray-2">
+        <button  className="text-gray-2">
           <MoreHorizontal size={18} />
         </button>
       </div>
@@ -73,8 +73,8 @@ export default function ShipmentTypeChart() {
               {item.value}%
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-1">{item.label}</p>
-              <p className="text-xs text-gray-2">{item.count}</p>
+              <p className="text-[12px] font-medium text-gray-1">{item.label}</p>
+              <p className="text-[10px] text-gray-2">{item.count}</p>
             </div>
           </div>
         ))}

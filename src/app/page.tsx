@@ -31,10 +31,10 @@ export default function Home() {
   };
 
   return (
-    <div className="flex xl:w-[1440px] bg-gray-3 mx-auto xl:flex-row flex-col   ">
+    <div className="flex xl:w-[1440px] bg-gray-3 mx-auto xl:flex-row flex-col ">
       {/* left content */}
-      <section className="bg-purple-1 xl:w-1/2 flex flex-col items-center justify-center gap-4 h-[1024px]">
-        <div className="flex flex-row w-66 h-18 items-center justify-center gap-4">
+      <section className="bg-purple-1 xl:w-1/2 flex flex-col h-[844px] md:min-h-[1024px] items-center justify-center gap-4 ">
+        <div className="flex flex-row  items-center justify-center gap-4">
           <Image
             src={logo1}
             alt="ShipNow logo"
@@ -42,7 +42,7 @@ export default function Home() {
             width={200}
             height={300}
           />
-          <h1 className="text-[34.43px] text-gray-3 font-black italic">
+          <h1 className="text-[34.43px] text-gray-3 font-black italic uppercase">
             SHIPNOW
           </h1>
         </div>
@@ -60,7 +60,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="md:w-121.75 md:h-24 w-[326px] h-[140px] text-center text-gray-3 flex flex-col items-center justify-center gap-4">
+        <div className="  md:w-[487px] w-[326px]  text-center text-gray-3 flex flex-col items-center justify-center gap-4">
           <h2 className="text-[40px] font-extrabold ">Welcome to ShipNow</h2>
           <p className="font-normal text-[16px]">
             Manage your shipments, fleet, and warehouse in one smart dashboard.
@@ -69,10 +69,10 @@ export default function Home() {
       </section>
 
       {/* right content */}
-      <section className="bg-gray-3 xl:w-1/2  flex flex-col items-center justify-center h-[1024px] gap-4">
-        <div className="flex flex-col items-center justify-center gap-4 w-100">
+      <section className="bg-gray-3 xl:w-1/2 h-[844px] md:min-h-[1024px] flex flex-col items-center justify-center pt-[32px] pb-[64px] px-[32px] md:pt-[120px] md:px-[160px] md:pb-[200px] gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 ">
           <Image src={logo} alt="ShipNow logo" className="w-10 h-10" />
-          <div className="w-100 h-13 gap-2 flex flex-col items-center justify-center">
+          <div className=" gap-2 flex flex-col items-center justify-center">
             <h3 className="text-gray-1 font-bold text-2xl">Welcome Back</h3>
             <p className="font-normal text-[14px] text-gray-2">
               Log in to continue managing your logistics with ShipNow
@@ -81,21 +81,21 @@ export default function Home() {
         </div>
 
         {/* login form */}
-        <form className="mt-8" onSubmit={handleLogin}>
+        <form className="w-full" onSubmit={handleLogin}>
           <div className="mb-1.5">
             {/* Email */}
-            <label>Email Address</label>
+            <label className="text-[11px]">Email Address</label>
             <input
               required
               type="email"
               name="email"
               placeholder="Enter a valid email address"
-              className="bg-gray-100 text-gray-1 w-full px-3 py-2 rounded-lg"
+              className="bg-gray-100 text-gray-1 text-[12px] w-full px-3 py-2 rounded-lg"
             />
           </div>
           {/* password */}
           <div className="mb-1.5">
-            <label htmlFor="password">Password</label>
+            <label className="text-[11px]">Password</label>
             <div className="relative">
               <input
                 required
@@ -103,7 +103,7 @@ export default function Home() {
                 name="password"
                 id="password"
                 placeholder="Create a strong password"
-                className="bg-gray-100 text-gray-1 w-full px-3 py-2 pr-10 rounded-lg"
+                className="bg-gray-100 text-gray-1 text-[12px] w-full px-3 py-2 pr-10 rounded-lg"
               />
               <button
                 type="button"
@@ -126,22 +126,22 @@ export default function Home() {
                 type="checkbox"
                 name="remember"
                 value="Remember me"
-                className="accent-purple-1 mr-1"
+                className="accent-purple-1 mr-1 text-[11px]"
               ></input>
-              <label>Remember me</label>
+              <label className="text-[11px]">Remember me</label>
               <br></br>
             </div>
             <div>
               <Link
                 href="/forgotpassword"
-                className="text-purple-1 text-sm p-0.5"
+                className="text-purple-1 text-[11px] p-0.5"
               >
                 Forgot Password?
               </Link>
             </div>
           </div>
           <button
-            className="bg-gray-1 text-gray-3 w-full px-4.5 py-3 rounded-lg mb-4"
+            className="bg-gray-1 text-gray-3 text-[16px] w-full px-4.5 py-3 rounded-lg mb-4"
             type="submit"
           >
             Login

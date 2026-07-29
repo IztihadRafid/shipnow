@@ -106,15 +106,15 @@ export default function ColumnChar2() {
   return (
     <div className="bg-gray-3 rounded-xl p-4">
       <div className="flex items-center justify-between  mb-2">
-        <h3 className="font-semibold text-gray-1">Profit Summary</h3>
-        <button className="flex items-center bg-gray-5  gap-1 text-sm text-gray-2 border border-gray-1/10 rounded-lg px-3 py-1.5">
+        <h3 className="font-semibold text-gray-1 text-[16px]">Profit Summary</h3>
+        <button className="flex items-center bg-gray-5  gap-1 text-[12px] text-gray-2 border border-gray-1/10 rounded-lg px-3 py-1.5">
           Last 8 Months <ChevronDown size={14} />
         </button>
       </div>
 
       <div className="flex items-center gap-2 mb-4">
         <span className="text-2xl font-bold text-gray-1">$624,550</span>
-        <span className="flex bg-[#d9f9e7] text[#007837] items-center gap-0.5 text-xs font-medium  rounded-full px-2 py-0.5">
+        <span className="flex bg-[#d9f9e7] text-[#007837] items-center gap-0.5 text-[10px] font-medium  rounded-full px-2 py-0.5">
           <ArrowUp size={12} /> 5.62%
         </span>
       </div>

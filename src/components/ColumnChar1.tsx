@@ -63,7 +63,7 @@ export default function ShipmentStatisticChart() {
               color: "#fff",
               fontSize: "12px",
               fontWeight: 600,
-              padding: { left: 10, right: 10, top: 6, bottom: 6 },
+              padding: { left: 10, right: 10, top: 2, bottom: 2 },
             },
             text: "May 2030\n3,124",
           },
@@ -82,17 +82,17 @@ export default function ShipmentStatisticChart() {
   };
 
   return (
-    <div className="bg-gray-3 rounded-xl p-4 ">
+    <div className="bg-gray-3 rounded-xl p-4 w-full">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="font-semibold text-gray-1">Shipment Statistic</h3>
-        <button className="flex items-center gap-1 bg-gray-5 text-sm text-gray-2 border border-gray-1/10 rounded-lg px-3 py-1.5">
+        <h3 className="font-semibold text-gray-1 text-[16px]">Shipment Statistic</h3>
+        <button className="flex items-center gap-1 bg-gray-5 text-[12px] text-gray-2 border border-gray-1/10 rounded-lg ">
           Last Year <ChevronDown size={14} />
         </button>
       </div>
 
       <div className="flex items-center gap-2 mb-4">
         <span className="text-2xl font-bold text-gray-1">4,352</span>
-        <span className="flex items-center gap-0.5 text-xs font-medium bg-[#d9f9e7] text[#007837] rounded-full px-2 py-0.5">
+        <span className="flex items-center gap-0.5 text-[10px] font-medium bg-[#d9f9e7] text-[#007837] rounded-full px-2 py-0.5">
           <ArrowUp size={12} /> 8.7%
         </span>
       </div>

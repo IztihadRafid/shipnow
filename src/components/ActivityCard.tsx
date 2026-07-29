@@ -41,10 +41,10 @@ const activityData : ActivityCardProps[] = [
 
 export default function ActivityCard() {
   return (
-    <div className="bg-gray-3 rounded-xl p-4 w-[299px]">
+    <div className="bg-gray-3 rounded-xl p-4 xl:w-[299px] ">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-1">Recent Activity</h3>
-        <button aria-label="More options" className="text-gray-2">
+        <h3 className="font-bold text-[16px] text-gray-1">Recent Activity</h3>
+        <button  className="text-gray-2">
           <MoreHorizontal size={18} />
         </button>
       </div>

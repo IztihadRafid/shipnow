@@ -15,10 +15,10 @@ const totalProducts = categoryData.reduce((sum, carrd) => sum + carrd.products, 
 
 export default function ProductCategoriesCard() {
   return (
-    <div className="bg-gray-3 rounded-xl p-4 w-[370px]">
+    <div className="bg-gray-3 rounded-xl p-4 h-full">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-1">Product Categories</h3>
-        <button aria-label="More options" className="text-gray-2">
+        <h3 className="font-semibold text-[16px] text-gray-1">Product Categories</h3>
+        <button  className="text-gray-2">
           <MoreHorizontal size={18} />
         </button>
       </div>
@@ -30,7 +30,7 @@ export default function ProductCategoriesCard() {
         </span>
       </div>
 
-      <div className="flex gap-1 h-8">
+      <div className="flex gap-1 h-[54px]">
         {categoryData.map((carrd) => (
           <div
             key={carrd.label}

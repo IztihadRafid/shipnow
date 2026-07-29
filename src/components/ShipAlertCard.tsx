@@ -33,10 +33,10 @@ const alertList = [
 ];
 export default function ShipAlertCard() {
   return (
-    <div className="bg-gray-3 rounded-xl p-4 w-[299px]">
+    <div className="bg-gray-3 rounded-xl p-4 ">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-1">Shipment Alerts</h3>
-        <button aria-label="More options" className="text-gray-2">
+        <h3 className="font-semibold text-gray-1 text-[16px]">Shipment Alerts</h3>
+        <button className="text-gray-2">
           <MoreHorizontal size={18} />
         </button>
       </div>
@@ -51,19 +51,19 @@ export default function ShipAlertCard() {
             key={stat.label}
             className="bg-purple-1/10 rounded-lg p-3 flex flex-col items-center text-center gap-1"
           >
-            <span className="text-xl font-bold text-gray-1">{stat.count}</span>
-            <span className="text-[11px] text-gray-2 leading-tight">{stat.label}</span>
+            <span className="text-[24px] font-bold text-gray-1">{stat.count}</span>
+            <span className="text-[10px] text-gray-2 leading-tight">{stat.label}</span>
           </div>
         ))}
       </div>
-      <div className="flex flex-col divide-y divide-gray-1/10">
+      <div className="flex flex-col  divide-gray-1/10">
         {alertList.map((alert, index) => (
-          <div key={index} className="flex items-center justify-between py-3">
+          <div key={index} className="flex items-center justify-between py-2">
             <div className="flex items-center gap-3">
               <alert.icon size={18} className="text-gray-2 shrink-0" />
               <div>
-                <p className="text-sm font-medium text-gray-1">{alert.title}</p>
-                <p className="text-xs text-gray-2">
+                <p className="text-[12px] text-gray-1">{alert.title}</p>
+                <p className="text-[10px] text-gray-2">
                   <span className="text-purple-1">{alert.shipmentId}</span> · {alert.meta}
                 </p>
               </div>
