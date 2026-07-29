@@ -90,7 +90,7 @@ const ShipmentPage = () => {
         />
       </section>
 
-      {/* cards or table, depending on which view is picked */}
+      
       <section>
         {paginatedShipments.length === 0 ? (
           <p className="text-center text-gray-2 text-sm py-10">No shipments</p>

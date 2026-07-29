@@ -6,7 +6,7 @@ import {
 } from "./Invoicecalculations ";
 import { ArrowUpDown } from "lucide-react";
 
-const statusStyles: Record<InvoiceStatus, string> = {
+const statusStyles = {
   Paid: "bg-green-100 text-green-700",
   Unpaid: "bg-purple-1/10 text-purple-1",
   Overdue: "bg-gray-4 text-gray-1",

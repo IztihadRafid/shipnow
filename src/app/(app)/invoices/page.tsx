@@ -2,7 +2,7 @@
 import InvoiceDetails from "@/components/InvoiceDetails";
 import InvoicesTable from "@/components/InvoicesTable";
 import { invoiceStats, invoices } from "@/data/invoices";
-import { Plus, Search, SlidersHorizontal, X } from "lucide-react";
+import { ChevronLeft, Plus, Search, SlidersHorizontal, X } from "lucide-react";
 import { useState } from "react";
 
 const InvoiceBillingPage = () => {
@@ -126,24 +126,18 @@ const InvoiceBillingPage = () => {
         )}
 
         <div
-          className={`absolute top-0 right-0 z-50 h-full w-[479px] max-w-full bg-white p-4 overflow-y-auto transition-transform duration-300 ease-in-out rounded-xl
+          className={` absolute top-0 right-0 z-50 h-full w-[479px] max-w-full bg-white p-4 overflow-y-auto transition-transform duration-300 ease-in-out rounded-xl
             ${isDrawerOpen ? "translate-x-0" : "translate-x-full"}
             xl:static xl:translate-x-0 xl:z-auto xl:w-[479px] xl:h-auto xl:p-0 xl:block xl:overflow-visible
           `}
         >
-          <div className="flex justify-end xl:hidden mb-2">
-            <button
-              onClick={() => setIsDrawerOpen(false)}
-              className="p-1 rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200"
-            >
-              <X size={18} />
+          <div className="flex justify-end xl:hidden mb-2 absolute top-[30px] left-2 ">
+            <button >
+             <ChevronLeft   onClick={() => setIsDrawerOpen(false)}/>
             </button>
           </div>
 
-          <InvoiceDetails
-            selectedId={selectedId}
-            onClose={() => setIsDrawerOpen(false)}
-          />
+          <InvoiceDetails selectedId={selectedId}/>
         </div>
       </section>
     </div>

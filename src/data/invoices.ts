@@ -29,7 +29,7 @@ export const invoices: InvoiceRow[] = [
   { id: "INV-1011", company: "SmartAppliance", shippingId: "#SH8923752", issueDate: "2035-03-18", dueDate: "2035-03-25", amount: 1050.00, status: "Paid" },
 ];
 // 4 data for calculations
-export const invoiceDetailsMap = {
+export const invoiceDetailsMap : Record<string, InvoiceDetails> = {
   "INV-1001": {
     id: "INV-1001",
     status: "Paid",
