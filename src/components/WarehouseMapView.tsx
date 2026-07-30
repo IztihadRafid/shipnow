@@ -17,7 +17,7 @@ export default function WarehouseMapView() {
             href="/floo1"
             className={`flex items-center rounded-lg py-[7px] px-5 text-[12px] ${
               pathname === "/warehouse"
-                ? "bg-black text-white"
+                ? "bg-gray-1 text-gray-3"
                 : "bg-gray-5 text-black"
             }`}
           >
@@ -27,7 +27,7 @@ export default function WarehouseMapView() {
             href="/flool2"
             className={`flex items-center rounded-lg py-[7px] px-[26px] text-[12px] ${
               pathname === "/flool2"
-                ? "bg-black text-white"
+                ? "bg-gray-1 text-gray-3"
                 : "bg-gray-5 text-black"
             }`}
           >
@@ -38,7 +38,7 @@ export default function WarehouseMapView() {
             href="/flool3"
             className={`flex items-center rounded-lg py-[7px] pr-5 text-[12px] ${
               pathname === "/flool3"
-                ? "bg-black text-white"
+                ? "bg-gray-1 text-gray-3"
                 : "bg-gray-5 text-black"
             }`}
           >

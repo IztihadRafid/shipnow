@@ -28,8 +28,8 @@ const WareHousePage = () => {
             href="/warehouse"
             className={`hidden md:inline-flex items-center rounded-l-lg py-2 px-3 text-[12px] ${
               pathname === "/warehouse"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-gray-1 text-gray-3"
+                : "bg-white text-gray-1"
             }`}
           >
             <Van className="mr-2" size={20} /> Road Freight
@@ -38,8 +38,8 @@ const WareHousePage = () => {
             href="/rail-freight"
             className={`hidden md:inline-flex items-center  py-2 px-3 text-[12px] ${
               pathname === "/rail-freight"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-gray-1 text-gray-3"
+                : "bg-white text-gray-1"
             }`}
           >
             <TramFront className="mr-2" size={20} />
@@ -47,10 +47,10 @@ const WareHousePage = () => {
           </Link>
           <Link
             href="/ocean-freight"
-            className={`hidden md:inline-flex items-center  py-2 px-3  text-[12px]${
+            className={`hidden md:inline-flex items-center  py-2 px-3  text-[12px] ${
               pathname === "/ocean-freight"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-gray-1 text-gray-3"
+                : "bg-white text-gray-1"
             }`}
           >
             <Ship className="mr-2" size={20} />
@@ -60,8 +60,8 @@ const WareHousePage = () => {
             href="/air-freight"
             className={`hidden md:inline-flex items-center rounded-r-lg py-2 px-3 text-[12px] ${
               pathname === "/air-freight"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-gray-1 text-gray-3"
+                : "bg-white text-gray-1"
             }`}
           >
             <Plane className="mr-2" size={20} />
