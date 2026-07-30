@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, DoorOpen, Menu, X } from "lucide-react";
 import Image from "next/image";
 import logo1 from "../../public/logo.png";
 import patterns from "../../public/Patterns.png";
@@ -73,7 +73,9 @@ export default function Sidebar() {
         {/* logo section */}
         <div className="h-14  flex  justify-between items-center gap-2 px-2">
           <Image src={logo1} alt="ShipNow logo" className="w-7 h-7" />
-          <span className="font-black italic text-[19.13px] text-gray-1">SHIPNOW</span>
+          <span className="font-black italic text-[19.13px] text-gray-1">
+            SHIPNOW
+          </span>
         </div>
         {/* profile section */}
         <div className="md:hidden xl:flex mt-5 items-center justify-between mx-auto bg-gray-5 rounded-lg">
@@ -189,8 +191,14 @@ export default function Sidebar() {
             </button>
           </div>
         </div>
-
+       
         <NavLinks sideNavlinks />
+         
+          <button onClick={handleLogout} className="w-[98%] bg-gray-5 flex items-center justify-start gap-2 p-2 ml-1  font-semibold text-[14px] text-gray-2">
+            <DoorOpen size={22} />
+           <span className="ml-1"> Logout</span>
+          </button>
+      
       </aside>
       {/* Mobile sticky top bar */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gray-3 border-b border-gray-1/10 flex items-center justify-between px-4 z-10">
