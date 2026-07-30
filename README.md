@@ -15,7 +15,9 @@ ShipNow streamlines logistics operations by offering real-time shipment tracking
 - **Icons**: Lucide React 1.26.0, React Icons 5.7.0
 - **Language**: TypeScript 5 (Strict Mode)
 - **Font**: Nunito Sans (Google Fonts)
+## Live Demo
 
+View the live application: [https://shipnow-gules.vercel.app](https://shipnow-gules.vercel.app)
 ## Project Structure
 
 ```
@@ -158,11 +160,13 @@ ShipNow is fully responsive with optimized layouts for:
 - **Neutral**: Gray scale (#333333, #757575, #fefefe, #f0ebeb, #f0f0f0, #E0E0E0)
 - **Custom CSS variables** defined in `src/app/globals.css`
 
+
+
 ## Getting Started
 
 ### Prerequisites
 - Node.js 18+ installed
-- npm, yarn, pnpm, or bun package manager
+- npm package manager
 
 ### Installation
 
@@ -175,12 +179,6 @@ cd shipnow
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
 ```
 
 ### Development
@@ -188,12 +186,6 @@ bun install
 Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
@@ -222,6 +214,43 @@ npm start
 - Next.js recommended configuration
 - TypeScript support
 - Core Web Vitals rules
+
+## Screen-by-Screen Status
+
+| Screen/Feature | Status |
+|----------------|--------|
+| Login Page | ✅ Complete |
+| Dashboard | ✅ Complete |
+| Shipments List | ✅ Complete |
+| Create Shipment Form | ✅ Complete |
+| Invoices & Billing | ✅ Complete |
+| Warehouse Management | ✅ Complete |
+| Responsive Design (Mobile) | ✅ Complete |
+| Responsive Design (Tablet) | ✅ Complete |
+| Responsive Design (Desktop) | ✅ Complete |
+| Analytics Page | ⏸️ Not Attempted |
+| Calendar Page | ⏸️ Not Attempted |
+| Tracking Page | ⏸️ Not Attempted |
+| Fleets Page | ⏸️ Not Attempted |
+| Drivers Page | ⏸️ Not Attempted |
+| Message Page | ⏸️ Not Attempted |
+| Notification Page | ⏸️ Not Attempted |
+| Settings Page | ⏸️ Not Attempted |
+
+## Known Issues & Assumptions
+
+### Known Issues
+- No known critical issues at this time
+
+### Assumptions Made
+- Authentication uses LocalStorage for session persistence (not production-ready)
+- Data is currently hardcoded in TypeScript files for demonstration purposes
+- No backend API integration - all data is client-side
+- Phone validation includes country code selection but does not validate actual phone numbers
+- Shipment tracking map is a visual representation using SVG, not a real map integration
+- Invoice calculations are client-side and not connected to a payment gateway
+- Warehouse map is a static visualization without real-time inventory updates
+- Navigation links for Analytics, Calendar, Tracking, Fleets, Drivers, Message, Notification, and Settings pages exist but corresponding pages are not implemented (redirect to 404)
 
 ## Browser Support
 
