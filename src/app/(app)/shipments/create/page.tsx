@@ -66,8 +66,11 @@ const CreateShipmentForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    data.notify = data.notify === "true";
+    const getData = Object.fromEntries(formData.entries());
+    const data = {
+      ...getData,
+      notify: getData.notify==="true",
+    }
     console.log(JSON.stringify(data, null, 2));
 
     alert("Form submitted successfully!");
