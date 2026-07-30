@@ -74,7 +74,7 @@ const ShipmentPage = () => {
         </div>
       </section>
 
-      <section className="md:flex md:flex-row justify-between flex-col items-center md:mt-0 mt-25 gap-3">
+      <section className="md:flex md:flex-row justify-between flex-col items-center md:mt-0 md:mt-0 mt-16 gap-3">
         <StatusTabs
           activeStatus={activeStatus}
           onStatusChange={handleStatusChange}
@@ -206,7 +206,8 @@ const ShipmentPage = () => {
           </div>
         )}
 
-        <Pagination //pagination
+        <div className="hidden xl:block"><Pagination //pagination
+          
           currentPage={currentPage}
           totalPages={totalPages}
           totalResults={totalResults}
@@ -216,7 +217,7 @@ const ShipmentPage = () => {
             setPageSize(size);
             setCurrentPage(1);
           }}
-        />
+        /></div>
       </section>
     </div>
   );

@@ -6,17 +6,19 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Image from "next/image";
 import logo1 from "../../public/logo.png";
+import patterns from "../../public/Patterns.png";
 import adminImg from "../../public/adminImg.jpg";
 import { navLinks, NavLinksProps } from "@/data/navlinks";
+import PromoCard from "./PromoCard";
 
 export default function Sidebar() {
   const pathname = usePathname();
   const [drawerOpen, setDrawerOpen] = useState(false);
- const isNavActive = (href: string) =>
+  const isNavActive = (href: string) =>
     pathname === href || pathname.startsWith(href + "/");
 
   const activeLink = navLinks.find((link) => isNavActive(link.href));
- 
+
   const NavLinks = ({
     sideNavlinks,
   }: {
@@ -49,7 +51,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop  sidebar */}
-      <aside className="hidden xl:flex  h-screen w-[223px] border-l border-gray-4 items-center bg-white  flex-col px-4 py-5 ">
+      <aside className="hidden xl:flex   w-[223px] border-l border-gray-4 items-center bg-white  flex-col px-4 py-5 ">
         {/* logo section */}
         <div className="h-14  flex w-[191px] items-center gap-2 px-2">
           <Image src={logo1} alt="ShipNow logo" className="w-7 h-7" />
@@ -75,6 +77,9 @@ export default function Sidebar() {
           </div>
         </div>
         <NavLinks sideNavlinks />
+
+        {/* promotion section */}
+       <PromoCard></PromoCard>
       </aside>
 
       {/* Tablet icon rail */}
@@ -83,44 +88,17 @@ export default function Sidebar() {
           <Image src={logo1} alt="ShipNow logo" width={32} height={32} />
         </div>
         {/* profile section */}
-        <div className="flex mt-5 items-center justify-between  bg-gray-5 rounded-lg"> 
-            <Image
-              src={adminImg}
-              alt="Admin profile"
-              className="w-8 h-8 rounded-full "
-              width={32}
-              height={32}
-            />
+        <div className="flex mt-5 items-center justify-between  bg-gray-5 rounded-lg">
+          <Image
+            src={adminImg}
+            alt="Admin profile"
+            className="w-8 h-8 rounded-full "
+            width={32}
+            height={32}
+          />
         </div>
         <NavLinks sideNavlinks={false} />
       </aside>
-
-      {/* Mobile sticky top bar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gray-3 border-b border-gray-1/10 flex items-center justify-between px-4 z-40">
-        <Image
-          src={logo1}
-          alt="ShipNow logo"
-          className="w-7 h-7"
-          width={32}
-          height={32}
-        />
-         <h2 className="font-semibold text-[16px] text-gray-1">{activeLink?.name}</h2>
-        <button
-          type="button"
-          aria-label="Open menu"
-          onClick={() => setDrawerOpen(true)}
-        >
-          <Menu size={24} className="text-gray-1" />
-        </button>
-      </div>
-
-      {/* Mobile drawer overlay */}
-      {drawerOpen && (
-        <div
-          className="md:hidden fixed inset-0 bg-black/40 z-40"
-          onClick={() => setDrawerOpen(false)}
-        />
-      )}
 
       {/* Mobile drawer panel */}
       <aside
@@ -136,7 +114,9 @@ export default function Sidebar() {
             width={32}
             height={32}
           />
-          <h2 className="font-semibold text-[16px] text-gray-1">{activeLink?.name}</h2>
+          <h2 className="font-semibold text-[16px] text-gray-1">
+            {activeLink?.name}
+          </h2>
           <button
             type="button"
             aria-label="Close menu"
@@ -160,10 +140,40 @@ export default function Sidebar() {
               <p className="text-[10px]">Admin</p>
             </div>
           </div>
-         
         </div>
         <NavLinks sideNavlinks />
+
+        {/* promotion section */}
+       <PromoCard></PromoCard>
       </aside>
+      {/* Mobile sticky top bar */}
+      <div className="md:hidden fixed top-0 left-0 right-0 h-14 bg-gray-3 border-b border-gray-1/10 flex items-center justify-between px-4 z-40">
+        <Image
+          src={logo1}
+          alt="ShipNow logo"
+          className="w-7 h-7"
+          width={32}
+          height={32}
+        />
+        <h2 className="font-semibold text-[16px] text-gray-1">
+          {activeLink?.name}
+        </h2>
+        <button
+          type="button"
+          aria-label="Open menu"
+          onClick={() => setDrawerOpen(true)}
+        >
+          <Menu size={24} className="text-gray-1" />
+        </button>
+      </div>
+
+      {/* Mobile drawer overlay */}
+      {drawerOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/40 z-40"
+          onClick={() => setDrawerOpen(false)}
+        />
+      )}
     </>
   );
 }
