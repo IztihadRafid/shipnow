@@ -41,17 +41,17 @@ export default function InvoiceDetails({ selectedId }: { selectedId: string }) {
   return (
     <div className="bg-white rounded-xl p-[12px]">
       <div className="flex justify-between items-center">
-        <h4 className="text-[16px] font-semibold">Invoice Details</h4>
-        <div className="flex gap-2.5">
-          <button className="text-[12px] rounded-lg px-3 py-1.5">Edit</button>
-          <button className="text-[12px] rounded-lg px-3 py-1.5">Hold</button>
+        <h4 className="text-[16px] font-semibold ml-2">Invoice Details</h4>
+        <div className="hidden md:flex gap-2.5">
+          <button className="text-[12px] rounded-lg px-3 py-1.5 bg-gray-5">Edit</button>
+          <button className="text-[12px] rounded-lg px-3 py-1.5 bg-gray-5">Hold</button>
           <button className="text-[12px] bg-gray-1 text-white rounded-lg px-3 py-1.5">
             Send Invoice
           </button>
         </div>
       </div>
 
-      <div className="flex w-[423px] mx-auto justify-between items-start mt-4">
+      <div className="flex py-4 px-3 mx-auto justify-between items-start ">
         <div>
           <p className="text-[14px] font-bold">
             Invoice <span className="text-purple-1">#{invoice.id}</span>
@@ -78,35 +78,50 @@ export default function InvoiceDetails({ selectedId }: { selectedId: string }) {
         </div>
       </div>
 
-      <div className="bg-gray-5 rounded-lg p-3 mt-4 flex justify-between">
+      <div className="bg-gray-5 rounded-lg p-3  flex  gap-3 flex-col md:flex-row justify-between">
+        {/* left content */}
         <div>
           <p className="text-[10px] text-gray-2">Bill From</p>
           <p className=" font-bold mt-1 text-[16px]">{invoice.billFrom.name}</p>
-          <p className="text-[11px] text-gray-2">{invoice.billFrom.email}</p>
-          <p className="text-gray-2 text-[11px]">
-            {invoice.billFrom.addressLine}
-          </p>
-          <p className="text-[11px] text-gray-2">
-            {invoice.billFrom.cityStateZip}, {invoice.billFrom.country}
-          </p>
-          <p className="text-[11px]  text-gray-2">{invoice.billFrom.phone}</p>
+          <p className="hidden md:block xl:block text-[11px] text-gray-2">{invoice.billFrom.email}</p>
+          <p className="hidden md:block xl:block text-gray-2 text-[11px]">{invoice.billFrom.addressLine}</p>
+          <p className="hidden md:block xl:block text-[11px] text-gray-2">{invoice.billFrom.cityStateZip}, {invoice.billFrom.country}</p>
+          <p className="hidden md:block xl:block text-[11px]  text-gray-2">{invoice.billFrom.phone}</p>
+          <div className="md:hidden xl:hidden flex items-center justify-start gap-1"><p className="text-[11px] text-gray-2">{invoice.billFrom.email}</p> <p className="text-[11px]  text-gray-2">{invoice.billFrom.phone}</p></div>
+          <div className="md:hidden xl:hidden flex items-center justify-start gap-1"><p className="text-gray-2 text-[11px]">{invoice.billFrom.addressLine}</p> <p className="text-[11px] text-gray-2">{invoice.billFrom.cityStateZip}, {invoice.billFrom.country}</p></div>
         </div>
-        <div className="text-right">
+
+        <div className="md:hidden block border border-gray-300 my-2"></div>
+
+        {/* right content */}
+        <div className="text-left md:text-right">
           <p className="text-[10px] text-gray-2">Bill To</p>
           <p className="font-bold mt-1 text-[16px]">{invoice.billTo.name}</p>
-          <p className=" text-gray-2 text-[11px]">{invoice.billTo.email}</p>
-          <p className="text-[11px] text-gray-2">
+          <p className="hidden md:block xl:block text-gray-2 text-[11px]">{invoice.billTo.email}</p>
+          <div className=" md:hidden xl:hidden flex items-center justify-start gap-1">
+            <p className=" text-gray-2 text-[11px]">{invoice.billTo.email}</p>
+            <p className="text-[11px] text-gray-2">{invoice.billTo.phone}</p>
+          </div>
+          <p className="hidden md:block xl:block text-[11px] text-gray-2">
+            {invoice.billTo.addressLine}
+          </p>
+          <p className="hidden md:block xl:block text-[11px] text-gray-2">
+            {invoice.billTo.cityStateZip}, {invoice.billTo.country}
+          </p>
+          <div className="md:hidden xl:hidden flex items-center justify-start gap-1">
+            <p className="text-[11px] text-gray-2">
             {invoice.billTo.addressLine}
           </p>
           <p className="text-[11px] text-gray-2">
             {invoice.billTo.cityStateZip}, {invoice.billTo.country}
           </p>
-          <p className="text-[11px] text-gray-2">{invoice.billTo.phone}</p>
+          </div>
+          <p className="hidden md:block xl:block text-[11px] text-gray-2">{invoice.billTo.phone}</p>
         </div>
       </div>
 
-      <h5 className="text-[14px] font-semibold mt-4">Package Summary</h5>
-      <table className="w-full text-left mt-2 border border-gray-4 ">
+      <h5 className="text-[14px] font-semibold mt-4 ">Package Summary</h5>
+      <table className="w-full text-left mt-2 border border-gray-4 mx-auto">
         <thead>
           <tr className="text-gray-2 w-full flex items-center justify-between text-[10px] pt-3 px-2.5 pb-2 bg-gray-5 border-b border-gray-4 rounded-lg">
             <th className="w-[120px] flex items-center">
@@ -121,7 +136,7 @@ export default function InvoiceDetails({ selectedId }: { selectedId: string }) {
               <span className="text-[9px]">Price</span>
               <ArrowUpDown size={12} />
             </th>
-            <th className="w-[30px] flex items-center ">
+            <th className="md:block xl:block hidden w-[30px] flex items-center ">
               <span className="text-[9px]">Qty</span>
               <ArrowUpDown size={12} />
             </th>
@@ -150,7 +165,7 @@ export default function InvoiceDetails({ selectedId }: { selectedId: string }) {
               <td className="w-[40px] text-[10px] font-semibold text-gray-1">
                 ${item.price.toFixed(2)}
               </td>
-              <td className="w-[30px] text-[10px] font-semibold text-gray-1">
+              <td className=" md:block xl:block hidden w-[30px] text-[10px] font-semibold text-gray-1">
                 {item.qty}
               </td>
               <td className="w-[49px] text-[10px] text-gray-1 font-semibold text-right">
@@ -161,10 +176,10 @@ export default function InvoiceDetails({ selectedId }: { selectedId: string }) {
         </tbody>
       </table>
 
-      <div className=" w-full flex 1 text-[12px] text-gray-2 border-t-0 border-b border-x border-gray-4 rounded-lg">
+      <div className=" w-full flex 1 text-[12px] text-gray-2 border-t-0 border-b border-x border-gray-4 rounded-lg ">
        <div className="w-1/3"></div>
-       <div className="w-2/3">
-         <div className="flex justify-between py-1.5 px-2.5">
+       <div className="w-2/3 md:ml-0 xl:ml-0 ml-[18px]">
+         <div className="flex justify-between py-1.5 px-2.5 ">
           <span className="text-gray-2 text-[10px] font-semibold">
             Sub Total
           </span>
@@ -199,6 +214,15 @@ export default function InvoiceDetails({ selectedId }: { selectedId: string }) {
         <p className="text-[10px] text-gray-1">Note</p>
         <p className="text-[11px] text-gray-2 mt-1">{invoice.note}</p>
       </div>
+
+
+       <div className="md:hidden mt-[10px] flex gap-2.5 items-center justify-center">
+          <button className="text-[12px] rounded-lg px-3 py-1.5 bg-gray-5">Edit</button>
+          <button className="text-[12px] rounded-lg px-3 py-1.5 bg-gray-5">Hold</button>
+          <button className="text-[12px] bg-gray-1 text-white rounded-lg px-3 py-1.5">
+            Send Invoice
+          </button>
+        </div>
     </div>
   );
 }

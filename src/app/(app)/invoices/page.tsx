@@ -68,8 +68,7 @@ const InvoiceBillingPage = () => {
         })}
       </section>
 
-      
-      <section className="w-full mt-5 flex items-start gap-4 relative overflow-hidden">
+      <section className="w-full mt-5 xl:flex items-start gap-4 relative overflow-hidden">
         {/* Invoice table */}
         <div className="bg-white rounded-xl p-4 flex-1 min-w-0 w-full">
           <div>
@@ -80,20 +79,20 @@ const InvoiceBillingPage = () => {
               <div className="flex items-center justify-between gap-2.5">
                 <div>
                   <div className="md:flex items-center bg-gray-5 gap-1.5 rounded-lg p-[6px] hidden">
-                  <Search size={20} className="text-gray-2" />
-                  <input
-                    type="text"
-                    placeholder="Search invoices"
-                    className="rounded-lg bg-transparent text-sm text-gray-2"
-                  />
-                </div>
-                <div className="flex items-center bg-gray-5 gap-1.5 rounded-lg p-[6px]  xl:hidden md:hidden">
-                  <Search size={20} className="text-gray-2" />
-                  <input
-                    type="text"
-                    className="rounded-lg w-1 bg-transparent text-sm text-gray-1 text-gray-2"
-                  />
-                </div>
+                    <Search size={20} className="text-gray-2" />
+                    <input
+                      type="text"
+                      placeholder="Search invoices"
+                      className="rounded-lg bg-transparent text-sm text-gray-2"
+                    />
+                  </div>
+                  <div className="flex items-center bg-gray-5 gap-1.5 rounded-lg p-[6px]  xl:hidden md:hidden">
+                    <Search size={20} className="text-gray-2" />
+                    <input
+                      type="text"
+                      className="rounded-lg w-1 bg-transparent text-sm text-gray-1 text-gray-2"
+                    />
+                  </div>
                 </div>
                 <div className="rounded-lg p-[6px] bg-gray-5 cursor-pointer">
                   <SlidersHorizontal size={16} />
@@ -103,7 +102,7 @@ const InvoiceBillingPage = () => {
                     New Invoice
                   </button>
                   <button className="md:hidden xl:hidden block text-gray-3 text-[12px] font-semibold py-[6px] px-2.5 rounded-lg bg-gray-1">
-                    <Plus size={16}></Plus>  
+                    <Plus size={16}></Plus>
                   </button>
                 </div>
               </div>
@@ -121,23 +120,20 @@ const InvoiceBillingPage = () => {
         {isDrawerOpen && (
           <div
             onClick={() => setIsDrawerOpen(false)}
-            className="absolute inset-0 bg-black/20 z-40 xl:hidden rounded-xl"
+            className="hidden md:block xl:hidden absolute inset-0 bg-black/20 z-40 rounded-xl"
           />
         )}
 
-        <div
-          className={` absolute top-0 right-0 z-50 h-full w-[479px] max-w-full bg-white p-4 overflow-y-auto transition-transform duration-300 ease-in-out rounded-xl
-            ${isDrawerOpen ? "translate-x-0" : "translate-x-full"}
-            xl:static xl:translate-x-0 xl:z-auto xl:w-[479px] xl:h-auto xl:p-0 xl:block xl:overflow-visible
-          `}
+        <div className={`static w-full xl:mt-0 md:mt-0 mt-5 h-auto p-0 md:absolute md:top-0 md:right-0 md:z-50 md:h-full md:w-[479px] md:max-w-full md:bg-white md:p-4 md:overflow-y-auto md:transition-transform md:duration-300 md:ease-in-out md:rounded-xl ${isDrawerOpen ? "md:translate-x-0" : "md:translate-x-full"} xl:static xl:translate-x-0 xl:z-auto xl:w-[479px] xl:h-auto xl:p-0 xl:block xl:overflow-visible
+  `}
         >
-          <div className="flex justify-end xl:hidden mb-2 absolute top-[30px] left-2 ">
-            <button >
-             <ChevronLeft   onClick={() => setIsDrawerOpen(false)}/>
+          <div className="hidden md:flex xl:hidden mb-2 absolute top-[30px] left-2 justify-end">
+            <button>
+              <ChevronLeft onClick={() => setIsDrawerOpen(false)} />
             </button>
           </div>
 
-          <InvoiceDetails selectedId={selectedId}/>
+          <InvoiceDetails selectedId={selectedId} />
         </div>
       </section>
     </div>

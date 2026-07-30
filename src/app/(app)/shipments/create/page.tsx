@@ -67,7 +67,12 @@ const CreateShipmentForm = () => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
+    data.notify = data.notify === "true";
     console.log(JSON.stringify(data, null, 2));
+
+    alert("Form submitted successfully!");
+    e.currentTarget.reset();
+
   };
   return (
     <div className="bg-gray-5 p-2  mx-auto">
@@ -76,7 +81,7 @@ const CreateShipmentForm = () => {
           <h3 className="text-[24px] font-bold flex items-center mr-1">
             <Link href="/shipments">
               <ArrowLeft />
-            </Link>{" "}
+            </Link>
             Create New Shipment
           </h3>
           <p className="text-[11px]">
@@ -382,6 +387,7 @@ const CreateShipmentForm = () => {
                     Quantity
                   </label>
                   <input
+                    min="1"
                     required
                     type="number"
                     name="quantity"
@@ -410,7 +416,7 @@ const CreateShipmentForm = () => {
                   </label>
                   <input
                     required
-                    type="text"
+                    type="number"
                     name="weight"
                     placeholder="Enter Weight"
                     className=" py-[9px] px-3 rounded-lg text-[12px] w-full bg-gray-5"
@@ -442,8 +448,9 @@ const CreateShipmentForm = () => {
                   <div>
                     <div className="flex ">
                       <input
+                        min="1"
                         required
-                        type="text"
+                        type="number"
                         name="length"
                         placeholder="ex. 20"
                         className=" py-[9px] px-3 rounded-l-lg text-[12px] w-full bg-gray-5"
@@ -459,8 +466,9 @@ const CreateShipmentForm = () => {
                   <div>
                     <div className="flex ">
                       <input
+                        min="1"
                         required
-                        type="text"
+                        type="number"
                         name="width"
                         placeholder="ex. 20"
                         className=" py-[9px] px-3 rounded-l-lg text-[12px] w-full bg-gray-5"
@@ -476,8 +484,9 @@ const CreateShipmentForm = () => {
                   <div>
                     <div className="flex ">
                       <input
+                        min="1"
                         required
-                        type="text"
+                        type="number"
                         name="height"
                         placeholder="ex. 20"
                         className=" py-[9px] px-3 rounded-l-lg text-[12px] w-full bg-gray-5"
@@ -645,9 +654,11 @@ const CreateShipmentForm = () => {
                       <div>
                         <div className="relative">
                           <input
+                          required
                             type="date"
                             className=" py-[9px] px-3 rounded-lg text-[12px] w-full bg-gray-5"
                             name="shipmentDate"
+                              min={new Date().toISOString().split("T")[0]}
                           />
                         </div>
                       </div>
@@ -661,7 +672,6 @@ const CreateShipmentForm = () => {
                     </label>
                     <textarea
                       rows={2}
-                      required
                       name="note"
                       placeholder="Add special delivery notes (optional)"
                       className=" py-[9px] px-3 rounded-lg text-[12px] bg-gray-5"
@@ -751,6 +761,7 @@ const CreateShipmentForm = () => {
                         Notify Recipient via Email/SMS
                       </span>
                     </label>
+                    <input type="hidden" name="notify" value={notify ? "true" : "false"} />
                   </div>
                 </div>
               </div>

@@ -64,7 +64,7 @@ const ShipmentPage = () => {
         <div className="flex justify-between items-center bg-white gap-4">
           <Link
             href="/shipments/create" 
-            className="hidden md:inline-flex items-center bg-black text-gray-3 rounded-lg py-2.5 px-4"
+            className="hidden md:inline-flex text-[14px] items-center bg-black text-gray-3 rounded-lg py-2.5 px-4"
           >
             + Add New Shipping
           </Link>

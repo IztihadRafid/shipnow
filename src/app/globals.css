@@ -6,6 +6,7 @@
   --gray-3: #fefefe;
   --gray-4: #f0ebeb;
   --gray-5: #f0f0f0;
+  --gray-6: #E0E0E0;
   --white: #fefefe;
   --blue-1: #2A1298;
   --purple-1: #856df3;
@@ -19,6 +20,7 @@
   --color-gray-3: var(--gray-3);
   --color-gray-4: var(--gray-4);
   --color-gray-5: var(--gray-5);
+  --color-gray-5: var(--gray-6);
   --color-white: var(--white);
   --color-blue-1: var(--blue-1);
   --color-purple-2: var(--purple-2);
